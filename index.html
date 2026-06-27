@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода в Санкт-Петербурге</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода в Санкт-Петербурге</h1>
+        <div id="weather-card">
+            <div id="loading">Загрузка...</div>
+            <div id="weather-info" class="hidden">
+                <div class="city">Санкт-Петербург</div>
+                <div class="temperature">--°C</div>
+                <div class="description">--</div>
+                <div class="details">
+                    <span id="humidity">Влажность: --%</span>
+                    <span id="wind">Ветер: -- м/c</span>
+                </div>
+                <div class="icon">--</div>
+            </div>
+            <div id="error" class="hidden">
+                <p>Не удалось получить данные о погоде</p>
+                <button onclick="getWeather()">Попробовать снова</button>
+            </div>
+        </div>
+        <button onclick="getWeather()" class="refresh-btn">Обновить погоду</button>
+        <button onclick="toggleTheme()" class="theme-toggle">🌙/☀️</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

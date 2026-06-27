@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Светлая тема */
+    --bg-color: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --text-color: #333;
+    --secondary-text: #666;
+    --highlight-color: #2575fc;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --error-color: #e74c3c;
+    --button-gradient: linear-gradient(to right, #6a11cb, #2575fc);
+    --hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] {
+    /* Тёмная тема */
+    --bg-color: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    --card-bg: rgba(30, 30, 46, 0.9);
+    --text-color: #f0f0f0;
+    --secondary-text: #b8b8c6;
+    --highlight-color: #5c8bff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --error-color: #ff7675;
+    --button-gradient: linear-gradient(to right, #4c6ef5, #5cb9fa);
+    --hover-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background 0.3s ease;
+}
+
+.container {
+    text-align: center;
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px var(--border-color);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+#weather-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#loading {
+    font-size: 18px;
+    color: var(--secondary-text);
+}
+
+#weather-info {
+    text-align: left;
+    width: 100%;
+}
+
+.city {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.temperature {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--highlight-color);
+    margin: 15px 0;
+}
+
+.description {
+    font-size: 18px;
+    color: var(--secondary-text);
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--secondary-text);
+    margin-top: 10px;
+}
+
+.icon {
+    font-size: 60px;
+    margin: 15px 0;
+}
+
+.refresh-btn {
+    background: var(--button-gradient);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 20px;
+}
+
+.refresh-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--hover-shadow);
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+}
+
+.theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+#error {
+    color: var(--error-color);
+    text-align: center;
+}
+
+#error button {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#error button:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .temperature {
+        font-size: 40px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        padding: 30px 20px;
+    }
+}
